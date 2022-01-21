@@ -15,9 +15,13 @@
  */
 package org.springframework.samples.petclinic.pet;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.springframework.samples.petclinic.care.Care;
 import org.springframework.samples.petclinic.model.NamedEntity;
 
 /**
@@ -26,5 +30,8 @@ import org.springframework.samples.petclinic.model.NamedEntity;
 @Entity
 @Table(name = "types")
 public class PetType extends NamedEntity {
+    
+    // @ManyToMany(mappedBy = "compatiblePetTypes")
+    // Set<Care> cares;
 
 }
