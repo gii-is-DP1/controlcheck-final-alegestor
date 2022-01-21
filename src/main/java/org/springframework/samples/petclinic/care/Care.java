@@ -35,7 +35,13 @@ public class Care extends BaseEntity{
 
     @ManyToMany(cascade = CascadeType.ALL)
     @NotNull
-    @JoinTable(name = "compatible_pet_types", joinColumns = @JoinColumn(name = "type_id"), 
-            inverseJoinColumns = @JoinColumn(name = "care_id"))
+    @JoinTable(name = "compatible_pet_types", joinColumns = @JoinColumn(name = "care_id"), 
+            inverseJoinColumns = @JoinColumn(name = "type_id"))
     Set<PetType> compatiblePetTypes;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "incompatible_cares", joinColumns = @JoinColumn(name = "care_id"), 
+            inverseJoinColumns = @JoinColumn(name = "care_id"))
+    Set<Care> incompatibleCares;
+
 }
