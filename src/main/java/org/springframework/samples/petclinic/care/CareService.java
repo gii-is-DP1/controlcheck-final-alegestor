@@ -7,10 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-@Service
 public class CareService {    
 
-    private CareProvisionRepository careProvisionRepository;
 
     public List<Care> getAllCares(){
         return null;
@@ -21,29 +19,19 @@ public class CareService {
     }
 
     public Care getCare(String careName) {
-        return careProvisionRepository.findCareByName(careName);
+        return null;
     }
 
-    @Transactional(rollbackFor = {NonCompatibleCaresException.class, UnfeasibleCareException.class})
     public CareProvision save(CareProvision p) throws NonCompatibleCaresException, UnfeasibleCareException {
-        if(!p.getCare().getIncompatibleCares().contains(p.getCare())) {
-            throw new NonCompatibleCaresException();
-        } else if (p.getCare().getCompatiblePetTypes().contains(p.getVisit().getPet().getType())){
-            throw new UnfeasibleCareException();
-        } 
-        
-        else {
-            careProvisionRepository.save(p);
-            return p;
-        }
+        return null;
     }
 
     public List<CareProvision> getAllCaresProvided(){
-        return careProvisionRepository.findAll();
+        return null;
     }
 
     public List<CareProvision> getCaresProvided(Integer visitId){
-        return careProvisionRepository.findCaresProvidedByVisitId(visitId);
+        return null;
 
     }
     
