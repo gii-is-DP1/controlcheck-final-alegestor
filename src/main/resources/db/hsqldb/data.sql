@@ -61,3 +61,20 @@ INSERT INTO visits(id,pet_id,visit_date,description) VALUES (1, 7, '2013-01-01',
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04', 'spayed');
+
+                        --Examen--
+INSERT INTO cares(id,name,description) VALUES (1,'Hair brushing','We will brush the hair of your pet.');
+INSERT INTO cares(id,name,description) VALUES (2,'Chemical flea removal','We will apply strong chemical products in the hair of your pet to remove any kind of flea or insect present.');
+
+--Tabla intermedia N2N
+INSERT INTO compatible_pet_types(care_id, pet_type_id) VALUES (1,1);
+INSERT INTO compatible_pet_types(care_id, pet_type_id) VALUES (1,2);
+INSERT INTO compatible_pet_types(care_id, pet_type_id) VALUES (2,1);
+INSERT INTO compatible_pet_types(care_id, pet_type_id) VALUES (2,2);
+
+--Ejercicio 4
+INSERT INTO incompatible_cares(care_id, incompatible_care_id) VALUES (1,2);
+INSERT INTO incompatible_cares(care_id, incompatible_care_id) VALUES (2,1);
+
+INSERT INTO care_provisions(id,duration,visit_id,care_id) VALUES (1,0.5,1,2);
+INSERT INTO care_provisions(id,duration,visit_id,care_id) VALUES (2,0.25,2,1);
